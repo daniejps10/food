@@ -7,38 +7,41 @@
    <title>Home</title>
    <link rel="stylesheet" href="css/style.css" />
    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
+   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
-   <nav class="bg-gray-700 text-gray-100">
+   <nav x-data="{ open: false }" class="fixed z-10 w-full bg-gray-700 text-gray-100">
       <div class="px-2 bg-gray-700 text-white flex justify-between items-center">
          <div>
             <img class="h-8 py-1" src="images/icon.svg" alt="Logo">
          </div>
-         <div class="text-2xl">&equiv;</div>
+         <div class="text-2xl" @click="open = true">&equiv;</div>
       </div>
-      <div class="my-1 mx-2">
-         <input class="form-control" type="text" placeholder="Buscar">
+      <div x-show="open" @click.away="open = false">
+         <div class="my-1 mx-2">
+            <input class="form-control" type="text" placeholder="Buscar">
+         </div>
+         <div class="py-1 smx-2 md:flex justify-around items-center">
+            <div class="flex">
+               Precio:
+               <div class="ml-2">$</div>
+               <div class="ml-2 text-yellow-500">$$</div>
+               <div class="ml-2">$$$</div>
+               <div class="ml-2">$$$$</div>
+            </div>
+            <div class="flex">
+               Calificación:
+               <div class="ml-1 text-yellow-500">&starf;</div>
+               <div class="ml-1 text-yellow-500">&starf;</div>
+               <div class="ml-1 text-yellow-500">&starf;</div>
+               <div class="ml-1">&star;</div>
+            </div>
+            <div>
+               <button class="send-btn">Filtrar</button>
+            </div>
+         </div>
       </div>
-      <div class="py-1 smx-2 md:flex justify-around items-center">
-         <div class="flex">
-            Precio:
-            <div class="ml-2">$</div>
-            <div class="ml-2 text-yellow-500">$$</div>
-            <div class="ml-2">$$$</div>
-            <div class="ml-2">$$$$</div>
-         </div>
-         <div class="flex">
-            Calificación:
-            <div class="ml-1 text-yellow-500">&starf;</div>
-            <div class="ml-1 text-yellow-500">&starf;</div>
-            <div class="ml-1 text-yellow-500">&starf;</div>
-            <div class="ml-1">&star;</div>
-         </div>
-         <div>
-            <button class="send-btn">Filtrar</button>
-         </div>
-      </div>
+      
    </nav>
    
 
